@@ -10,36 +10,33 @@ using System.Windows.Forms;
 
 namespace FamilyTree
 {
-    public partial class InitialPage : Form
+    public partial class Form2 : Form
     {
-        public InitialPage()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
 
         private void create_Click(object sender, EventArgs e)
         {
-            Form2 insertData = new Form2();
+            InitialPage home = new InitialPage();
             this.Hide();
-            insertData.ShowDialog();
+            home.ShowDialog();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            Form3 open = new Form3();
+            this.Hide();
+            open.ShowDialog();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

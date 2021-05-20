@@ -63,9 +63,9 @@ namespace FamilyTree.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nacionalitalia_arvore_genealogica {
+        internal static System.Drawing.Bitmap Adj {
             get {
-                object obj = ResourceManager.GetObject("Nacionalitalia-arvore-genealogica", resourceCulture);
+                object obj = ResourceManager.GetObject("Adj", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,49 @@ namespace FamilyTree.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nacionalitalia_arvore_genealogica1 {
+        internal static System.Drawing.Bitmap Adjilson1 {
             get {
-                object obj = ResourceManager.GetObject("Nacionalitalia-arvore-genealogica1", resourceCulture);
+                object obj = ResourceManager.GetObject("Adjilson1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mauro {
+            get {
+                object obj = ResourceManager.GetObject("Mauro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mauro1 {
+            get {
+                object obj = ResourceManager.GetObject("Mauro1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mauro2 {
+            get {
+                object obj = ResourceManager.GetObject("Mauro2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Unknown {
+            get {
+                object obj = ResourceManager.GetObject("Unknown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
