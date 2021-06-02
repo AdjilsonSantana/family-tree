@@ -33,11 +33,11 @@ namespace FamilyTree
             this.create = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFather = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.saveFather = new System.Windows.Forms.Button();
+            this.textBoxSon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -78,12 +78,13 @@ namespace FamilyTree
             this.label1.Text = "Father´s name:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // textBoxFather
             // 
-            this.textBox1.Location = new System.Drawing.Point(219, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 27);
-            this.textBox1.TabIndex = 4;
+            this.textBoxFather.Location = new System.Drawing.Point(219, 55);
+            this.textBoxFather.Name = "textBoxFather";
+            this.textBoxFather.Size = new System.Drawing.Size(185, 27);
+            this.textBoxFather.TabIndex = 4;
+            this.textBoxFather.TextChanged += new System.EventHandler(this.textBoxFather_TextChanged);
             // 
             // label2
             // 
@@ -103,21 +104,22 @@ namespace FamilyTree
             this.checkBox1.Text = "Does this father have son?";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // saveFather
             // 
-            this.button2.Location = new System.Drawing.Point(440, 55);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 29);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "save";
-            this.button2.UseVisualStyleBackColor = true;
+            this.saveFather.Location = new System.Drawing.Point(440, 55);
+            this.saveFather.Name = "saveFather";
+            this.saveFather.Size = new System.Drawing.Size(53, 29);
+            this.saveFather.TabIndex = 7;
+            this.saveFather.Text = "save";
+            this.saveFather.UseVisualStyleBackColor = true;
+            this.saveFather.Click += new System.EventHandler(this.saveFather_Click);
             // 
-            // textBox2
+            // textBoxSon
             // 
-            this.textBox2.Location = new System.Drawing.Point(248, 162);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 27);
-            this.textBox2.TabIndex = 8;
+            this.textBoxSon.Location = new System.Drawing.Point(248, 162);
+            this.textBoxSon.Name = "textBoxSon";
+            this.textBoxSon.Size = new System.Drawing.Size(185, 27);
+            this.textBoxSon.TabIndex = 8;
             // 
             // label3
             // 
@@ -145,11 +147,11 @@ namespace FamilyTree
             this.ClientSize = new System.Drawing.Size(1169, 539);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBoxSon);
+            this.Controls.Add(this.saveFather);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxFather);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.create);
@@ -168,11 +170,11 @@ namespace FamilyTree
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFather;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button saveFather;
+        private System.Windows.Forms.TextBox textBoxSon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button3;
     }

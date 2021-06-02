@@ -32,9 +32,58 @@ namespace FamilyTree
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<Father> fathers = new List<Father>();
+            List<Son> sons = new List<Son>();
+
+            Father nfather = new Father();
+           
+
+
             //Connection 
 
             NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select * from father";
+            NpgsqlDataReader dr = comm.ExecuteReader();
+            if (dr.HasRows)
+            {
+                //DataTable dt = new DataTable();
+                //dt.Load(dr);
+
+                while (dr.Read())
+                {
+                    fathers.Add(new Father
+                    {
+                        Id = (int) dr["id"],
+                        FatherName = (string) dr["name"],
+         
+                    });
+                }
+                dr.Close();
+
+                //dataGridView1.DataSource = dt;
+            }
+
+            comm.CommandText = "select * from son";
+            dr = comm.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    sons.Add(new Son
+                    {
+                        Id = (int) dr["id"],
+                        SonName = (string) dr["name"],
+                        IdFather = (int) dr["identifier"],
+
+                    });
+                }
+                dr.Close();
+            }
+
 
             Form3 open = new Form3();
             this.Hide();
@@ -54,6 +103,27 @@ namespace FamilyTree
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void saveFather_Click(object sender, EventArgs e)
+        {
+            //Connection 
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "insert into father(name) values (@name) ";
+            comm.Parameters.AddWithValue("@name", textBoxFather.Text);
+            comm.ExecuteNonQuery();
+
+        }
+
+        private void textBoxFather_TextChanged(object sender, EventArgs e)
         {
 
         }

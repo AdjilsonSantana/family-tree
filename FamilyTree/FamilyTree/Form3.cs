@@ -128,5 +128,10 @@ namespace FamilyTree
             this.Hide();
             insertData.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
