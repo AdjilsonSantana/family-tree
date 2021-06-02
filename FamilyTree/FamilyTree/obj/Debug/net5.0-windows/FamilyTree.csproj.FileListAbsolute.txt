@@ -19,3 +19,26 @@ C:\Users\hp\OneDrive\Documents\LSUA\Team project 2\family-tree\FamilyTree\Family
 C:\Users\hp\OneDrive\Documents\LSUA\Team project 2\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.InitialPage.resources
 C:\Users\hp\OneDrive\Documents\LSUA\Team project 2\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.Form2.resources
 C:\Users\hp\OneDrive\Documents\LSUA\Team project 2\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.Form3.resources
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\FamilyTree.exe
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\FamilyTree.deps.json
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\FamilyTree.runtimeconfig.json
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\FamilyTree.runtimeconfig.dev.json
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\FamilyTree.dll
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\ref\FamilyTree.dll
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\FamilyTree.pdb
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\bin\Debug\net5.0-windows\Npgsql.dll
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.csprojAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.InitialPage.resources
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.Form2.resources
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.Form3.resources
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.Properties.Resources.resources
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.csproj.GenerateResource.cache
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.AssemblyInfoInputs.cache
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.AssemblyInfo.cs
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.csproj.CopyComplete
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.dll
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\ref\FamilyTree.dll
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.pdb
+C:\Users\Administrator\Source\Repos\family-tree\FamilyTree\FamilyTree\obj\Debug\net5.0-windows\FamilyTree.genruntimeconfig.cache
