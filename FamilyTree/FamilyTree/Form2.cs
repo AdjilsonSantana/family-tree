@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace FamilyTree
 {
@@ -31,12 +32,28 @@ namespace FamilyTree
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Connection 
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
+
             Form3 open = new Form3();
             this.Hide();
             open.ShowDialog();
+
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

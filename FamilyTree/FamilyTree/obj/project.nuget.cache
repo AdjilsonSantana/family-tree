@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hHqk8QFCco91gRBbvjmGMoq2r66+RnWMr8VvAidLgHbO2Vi/ExHAGR38MefjqZ7IIvKU9cedaH7LjIT/TN4TyQ==",
+  "dgSpecHash": "mnrSgOqt2ScomT/JaBOUGUk8/Gl8WHIrBsaYTGXggvtgwjbF209bj/7PqvfFQvyg1yixh8JndYyAa16QNmfiZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Source\\Repos\\family-tree\\FamilyTree\\FamilyTree\\FamilyTree.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\hp\\OneDrive\\Documents\\LSUA\\Team project 2\\family-tree\\FamilyTree\\FamilyTree\\FamilyTree.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\npgsql\\5.0.5\\npgsql.5.0.5.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
   "logs": []
 }
