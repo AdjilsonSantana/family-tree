@@ -33,13 +33,13 @@ namespace FamilyTree
             this.create = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFather = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.IsSon = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.saveFather = new System.Windows.Forms.Button();
+            this.textBoxSon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.saveSon = new System.Windows.Forms.Button();
             this.image = new System.Windows.Forms.PictureBox();
             this.btn_upload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
@@ -49,7 +49,7 @@ namespace FamilyTree
             // 
             this.create.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.create.ForeColor = System.Drawing.Color.Green;
-            this.create.Location = new System.Drawing.Point(110, 261);
+            this.create.Location = new System.Drawing.Point(176, 443);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(116, 44);
             this.create.TabIndex = 1;
@@ -62,11 +62,11 @@ namespace FamilyTree
             // 
             this.button1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(634, 261);
+            this.button1.Location = new System.Drawing.Point(863, 443);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 44);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Generate";
+            this.button1.Text = "Next";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.UseWaitCursor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -74,18 +74,19 @@ namespace FamilyTree
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 58);
+            this.label1.Location = new System.Drawing.Point(176, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(162, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Father´s name:";
+            this.label1.Text = "Father or mather name:";
             // 
-            // textBox1
+            // textBoxFather
             // 
-            this.textBox1.Location = new System.Drawing.Point(219, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 27);
-            this.textBox1.TabIndex = 4;
+            this.textBoxFather.Location = new System.Drawing.Point(355, 79);
+            this.textBoxFather.Name = "textBoxFather";
+            this.textBoxFather.Size = new System.Drawing.Size(185, 27);
+            this.textBoxFather.TabIndex = 4;
+            this.textBoxFather.TextChanged += new System.EventHandler(this.textBoxFather_TextChanged_1);
             // 
             // label2
             // 
@@ -98,62 +99,71 @@ namespace FamilyTree
             // IsSon
             // 
             this.IsSon.AutoSize = true;
-            this.IsSon.Location = new System.Drawing.Point(116, 111);
+            this.IsSon.Location = new System.Drawing.Point(176, 153);
             this.IsSon.Name = "IsSon";
-            this.IsSon.Size = new System.Drawing.Size(204, 24);
+            this.IsSon.Size = new System.Drawing.Size(357, 24);
             this.IsSon.TabIndex = 6;
-            this.IsSon.Text = "Does this father have son?";
+            this.IsSon.Text = "Does this father or mother have son or dougther?";
             this.IsSon.UseVisualStyleBackColor = true;
+            this.IsSon.CheckedChanged += new System.EventHandler(this.IsSon_CheckedChanged);
             // 
-            // button2
+            // saveFather
             // 
-            this.button2.Location = new System.Drawing.Point(440, 55);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 29);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "save";
-            this.button2.UseVisualStyleBackColor = true;
+            this.saveFather.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.saveFather.ForeColor = System.Drawing.Color.Green;
+            this.saveFather.Location = new System.Drawing.Point(557, 79);
+            this.saveFather.Name = "saveFather";
+            this.saveFather.Size = new System.Drawing.Size(53, 29);
+            this.saveFather.TabIndex = 7;
+            this.saveFather.Text = "save";
+            this.saveFather.UseVisualStyleBackColor = true;
+            this.saveFather.Click += new System.EventHandler(this.saveFather_Click);
             // 
-            // textBox2
+            // textBoxSon
             // 
-            this.textBox2.Location = new System.Drawing.Point(248, 162);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 27);
-            this.textBox2.TabIndex = 8;
+            this.textBoxSon.Location = new System.Drawing.Point(355, 244);
+            this.textBoxSon.Name = "textBoxSon";
+            this.textBoxSon.Size = new System.Drawing.Size(185, 27);
+            this.textBoxSon.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(110, 165);
+            this.label3.Location = new System.Drawing.Point(178, 250);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.Size = new System.Drawing.Size(171, 20);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Name of the son:";
+            this.label3.Text = "Son or dougther´s name:\r\n";
             // 
-            // button3
+            // saveSon
             // 
-            this.button3.Location = new System.Drawing.Point(460, 163);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 26);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "save";
-            this.button3.UseVisualStyleBackColor = true;
+            this.saveSon.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.saveSon.ForeColor = System.Drawing.Color.Green;
+            this.saveSon.Location = new System.Drawing.Point(557, 244);
+            this.saveSon.Name = "saveSon";
+            this.saveSon.Size = new System.Drawing.Size(53, 27);
+            this.saveSon.TabIndex = 10;
+            this.saveSon.Text = "save";
+            this.saveSon.UseVisualStyleBackColor = true;
+            this.saveSon.Click += new System.EventHandler(this.saveSon_Click);
             // 
             // image
             // 
             this.image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.image.Location = new System.Drawing.Point(599, 31);
+            this.image.Location = new System.Drawing.Point(781, 55);
             this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(151, 122);
+            this.image.Size = new System.Drawing.Size(198, 159);
             this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image.TabIndex = 11;
             this.image.TabStop = false;
             // 
             // btn_upload
             // 
-            this.btn_upload.Location = new System.Drawing.Point(599, 159);
+            this.btn_upload.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_upload.ForeColor = System.Drawing.Color.Green;
+            this.btn_upload.Location = new System.Drawing.Point(781, 244);
             this.btn_upload.Name = "btn_upload";
-            this.btn_upload.Size = new System.Drawing.Size(151, 26);
+            this.btn_upload.Size = new System.Drawing.Size(198, 26);
             this.btn_upload.TabIndex = 12;
             this.btn_upload.Text = "Upload";
             this.btn_upload.UseVisualStyleBackColor = true;
@@ -163,16 +173,16 @@ namespace FamilyTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 421);
+            this.ClientSize = new System.Drawing.Size(1201, 553);
             this.Controls.Add(this.btn_upload);
             this.Controls.Add(this.image);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.saveSon);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBoxSon);
+            this.Controls.Add(this.saveFather);
             this.Controls.Add(this.IsSon);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxFather);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.create);
@@ -192,13 +202,13 @@ namespace FamilyTree
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFather;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox IsSon;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button saveFather;
+        private System.Windows.Forms.TextBox textBoxSon;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button saveSon;
         private System.Windows.Forms.PictureBox image;
         private System.Windows.Forms.Button btn_upload;
     }

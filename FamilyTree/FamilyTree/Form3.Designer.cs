@@ -1,7 +1,7 @@
 ﻿
 namespace FamilyTree
 {
-    partial class Form3
+    partial class familyDesign
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace FamilyTree
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(familyDesign));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblNodeText = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@ namespace FamilyTree
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 68);
+            this.pictureBox1.Location = new System.Drawing.Point(185, 80);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(984, 422);
             this.pictureBox1.TabIndex = 0;
@@ -52,9 +52,9 @@ namespace FamilyTree
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1179, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1201, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -63,7 +63,7 @@ namespace FamilyTree
             this.lblNodeText.AutoSize = true;
             this.lblNodeText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblNodeText.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNodeText.Location = new System.Drawing.Point(386, 9);
+            this.lblNodeText.Location = new System.Drawing.Point(501, 24);
             this.lblNodeText.Name = "lblNodeText";
             this.lblNodeText.Padding = new System.Windows.Forms.Padding(10);
             this.lblNodeText.Size = new System.Drawing.Size(403, 40);
@@ -76,7 +76,7 @@ namespace FamilyTree
             // 
             this.create.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.create.ForeColor = System.Drawing.Color.Green;
-            this.create.Location = new System.Drawing.Point(1020, 435);
+            this.create.Location = new System.Drawing.Point(28, 458);
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(116, 44);
             this.create.TabIndex = 3;
@@ -85,17 +85,17 @@ namespace FamilyTree
             this.create.UseWaitCursor = true;
             this.create.Click += new System.EventHandler(this.create_Click);
             // 
-            // Form3
+            // familyDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 529);
+            this.ClientSize = new System.Drawing.Size(1201, 555);
             this.Controls.Add(this.create);
             this.Controls.Add(this.lblNodeText);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form3";
+            this.Name = "familyDesign";
             this.Text = "Family tree | Design";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

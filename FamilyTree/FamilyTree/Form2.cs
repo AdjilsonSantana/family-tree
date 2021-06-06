@@ -9,19 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using Tulpep.NotificationWindow;
 
 namespace FamilyTree
 {
     public partial class Form2 : Form
     {
         public OpenFileDialog Open { get; set; }
-
         public int LastFatherId { get; set; }
         public int LastSonId { get; set; }
+        public string Folder { get; set; }
+        public int Filename { get; set; }
+
+        public List<Father> Fathers { get; set; }
+        public List<Son> Sons { get; set; }
+
+
         public Form2()
         {
             InitializeComponent();
             Open = new OpenFileDialog();
+            Fathers = new List<Father>();
+            Sons = new List<Son>();
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
@@ -38,21 +47,77 @@ namespace FamilyTree
 
         private void button1_Click(object sender, EventArgs e)
         {
+       
+            Form4 open = new Form4();
+            this.Hide();
+            open.ShowDialog();
+            
+        }
+
+        private void LoadData ()
+        {
+      
             //Connection 
 
             NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "select * from father";
+            NpgsqlDataReader dr = comm.ExecuteReader();
+            if (dr.HasRows)
+            {
+                //DataTable dt = new DataTable();
+                //dt.Load(dr);
 
-            Form3 open = new Form3();
-            this.Hide();
-            open.ShowDialog();
+                while (dr.Read())
+                {
+                    Fathers.Add(new Father
+                    {
+                        Id = (int)dr["id"],
+                        FatherName = (string)dr["name"],
 
-            
+                    });
+                }
+                dr.Close();
+
+                //dataGridView1.DataSource = dt;
+            }
+
+
+            comm.CommandText = "select * from son";
+            dr = comm.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    Sons.Add(new Son
+                    {
+                        Id = (int)dr["id"],
+                        SonName = (string)dr["name"],
+                        IdFather = (int)dr["identifier"],
+
+                    });
+                }
+                dr.Close();
+            }
+
+            LastFatherId = Fathers.LastOrDefault().Id;
+            LastSonId = Sons.LastOrDefault().Id;
+
+            conn.Close();
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
             image.Image = Image.FromFile(Application.StartupPath + @"\Image\" + "sem-foto.jpg");
-        }
+            LoadData();
+            textBoxSon.Enabled = false;
+            saveSon.Enabled = false;
+      
+    }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -66,17 +131,17 @@ namespace FamilyTree
 
         private void btn_upload_Click(object sender, EventArgs e)
         {
-            string folder = string.Empty;
-            int filename = 0;
+            Folder = string.Empty;
+            Filename = 0;
             if (!IsSon.Checked)
             {
-                folder = "Father";
-                filename = LastFatherId + 1;
+                Folder = "Father";
+                Filename = LastFatherId + 1;
             }
             else
             {
-                folder = "Son";
-                filename = LastSonId + 1;
+                Folder = "Son";
+                Filename = LastSonId + 1;
             }
             image.Image.Dispose();
             Open.Dispose();
@@ -91,16 +156,12 @@ namespace FamilyTree
                     image.Image = Image.FromFile(Open.FileName);
                 }
 
-                if (!Directory.Exists(Application.StartupPath + @$"\Image\{folder}\"))
+                if (!Directory.Exists(Application.StartupPath + @$"\Image\{Folder}\"))
                 {
-                    Directory.CreateDirectory(Application.StartupPath + @$"\Image\{folder}\");
+                    Directory.CreateDirectory(Application.StartupPath + @$"\Image\{Folder}\");
                 }
 
-                if (!string.IsNullOrEmpty(Open.FileName) && Open.CheckFileExists)
-                {
-                    File.Copy(Open.FileName, Path.Combine(Application.StartupPath + @$"\Image\{folder}\" + Path.GetFileName(filename.ToString())));
-
-                }
+               
 
             }
             catch (Exception)
@@ -109,6 +170,120 @@ namespace FamilyTree
                 MessageBox.Show("Erro ao Carregar a Imagem!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Open.Dispose();
             }
+
+        }
+
+
+        private void saveFather_Click(object sender, EventArgs e)
+        {
+            //Connection to database
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "insert into father(name) values (@name) ";
+            comm.Parameters.AddWithValue("@name", textBoxFather.Text);
+          
+            int result = comm.ExecuteNonQuery();
+
+            if (result == 1)
+            {
+                if (!string.IsNullOrEmpty(Open.FileName) && Open.CheckFileExists)
+                {
+                    File.Copy(Open.FileName, Path.Combine(Application.StartupPath + @$"\Image\{Folder}\" + Path.GetFileName(Filename.ToString())));
+
+                }
+                else
+                {
+                    MessageBox.Show("Error uploading image!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Open.Dispose();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error inserting father!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Open.Dispose();
+            }
+
+            LoadData();
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.TitleText = "Sucess!";
+            popup.Popup();
+
+        }
+
+        private void textBoxFather_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IsSon_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsSon.Checked)
+            {
+                textBoxFather.Enabled = false;
+                saveFather.Enabled = false;
+                textBoxSon.Enabled = true;
+                saveSon.Enabled = true;
+
+            }
+            else
+            {
+                textBoxFather.Enabled = true;
+                saveFather.Enabled = true;
+                textBoxSon.Enabled = false;
+                saveSon.Enabled = false;
+            }
+        }
+
+        private void textBoxFather_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveSon_Click(object sender, EventArgs e)
+        {
+            //Connection to database
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "insert into son(name, identifier) values (@name, @identifier) ";
+            comm.Parameters.AddWithValue("@name", textBoxSon.Text);
+            comm.Parameters.AddWithValue("@identifier", this.LastFatherId);
+
+            int result = comm.ExecuteNonQuery();
+
+            if (result == 1)
+            {
+                if (!string.IsNullOrEmpty(Open.FileName) && Open.CheckFileExists)
+                {
+                    File.Copy(Open.FileName, Path.Combine(Application.StartupPath + @$"\Image\{Folder}\" + Path.GetFileName(Filename.ToString())));
+
+                }
+                else
+                {
+                    MessageBox.Show("Error uploading image!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Open.Dispose();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error inserting son!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Open.Dispose();
+            }
+
+            LoadData();
+
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.TitleText = "Sucess!";
+            popup.Popup();
 
         }
     }

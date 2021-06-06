@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace FamilyTree
 {
-    public partial class Form3 : Form
+    public partial class familyDesign : Form
     {
 
         private FamilyMembers<PicNode> SelectedNode;
@@ -21,7 +21,7 @@ namespace FamilyTree
         private FamilyMembers<PicNode> Unknown = new FamilyMembers<PicNode>(new PicNode("David", Properties.Resources.Unknown));
 
 
-        public Form3()
+        public familyDesign()
         {
             InitializeComponent();
         }
@@ -124,7 +124,7 @@ namespace FamilyTree
 
         private void create_Click(object sender, EventArgs e)
         {
-            Form2 insertData = new Form2();
+            Form4 insertData = new Form4();
             this.Hide();
             insertData.ShowDialog();
         }

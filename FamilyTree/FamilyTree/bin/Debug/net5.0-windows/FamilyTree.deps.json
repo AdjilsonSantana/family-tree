@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "FamilyTree/1.0.0": {
         "dependencies": {
-          "Npgsql": "5.0.5"
+          "Npgsql": "5.0.5",
+          "Tulpep.NotificationWindow": "1.1.38"
         },
         "runtime": {
           "FamilyTree.dll": {}
@@ -25,7 +26,15 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.6.0": {}
+      "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
+      "Tulpep.NotificationWindow/1.1.38": {
+        "runtime": {
+          "lib/net40/Tulpep.NotificationWindow.dll": {
+            "assemblyVersion": "1.1.38.0",
+            "fileVersion": "1.1.38.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -47,6 +56,13 @@
       "sha512": "sha512-HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
       "path": "system.runtime.compilerservices.unsafe/4.6.0",
       "hashPath": "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    },
+    "Tulpep.NotificationWindow/1.1.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cotu1DDvSiSqvkGIY0SOh1QN5NgXTiWJEspZCx34My+p0q9ONvtPYUZELyN+Fpo0U/KyAG5B0wEiiFdaMCesag==",
+      "path": "tulpep.notificationwindow/1.1.38",
+      "hashPath": "tulpep.notificationwindow.1.1.38.nupkg.sha512"
     }
   }
 }
