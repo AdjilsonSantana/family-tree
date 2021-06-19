@@ -48,8 +48,8 @@ namespace FamilyTree
         private void button1_Click(object sender, EventArgs e)
         {
        
-            Form4 open = new Form4();
-            this.Hide();
+            Form4 open = new Form4(Fathers,Sons);
+            this.Hide(); 
             open.ShowDialog();
             
         }
@@ -282,8 +282,13 @@ namespace FamilyTree
 
 
             PopupNotifier popup = new PopupNotifier();
-            popup.TitleText = "Sucess!";
+            popup.TitleText = "Success!";
             popup.Popup();
+
+        }
+
+        private void image_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -14,16 +14,25 @@ namespace FamilyTree
 {
     public partial class familyDesign : Form
     {
+        private Father nameSelectd;
+        public List<Father> Fathers { get; set; }
+        public List<Son> Sons { get; set; }
+
 
         private FamilyMembers<PicNode> SelectedNode;
-        //private FamilyMembers<PicNode> HetepheresI = new FamilyMembers<PicNode>(new PicNode("HetepheresI", Properties.Resources.Adj));
-        //private FamilyMembers<PicNode> SNEFERU = new FamilyMembers<PicNode>(new PicNode("SNEFERU", Properties.Resources.SNEFERU));
-        private FamilyMembers<PicNode> Unknown = new FamilyMembers<PicNode>(new PicNode("David", Properties.Resources.Unknown));
+        private FamilyMembers<PicNode> Unknown ;
 
 
-        public familyDesign()
+        public familyDesign(List<Son> sonFather, Father name, List<Father> fatherCombo)
         {
             InitializeComponent();
+            Sons = sonFather;
+            nameSelectd = name;
+            Fathers = fatherCombo;
+
+            Unknown = new FamilyMembers<PicNode>(new PicNode(nameSelectd.FatherName, Properties.Resources.Unknown));
+
+
         }
 
         private void ShowTree()
@@ -34,8 +43,6 @@ namespace FamilyTree
                 float xmin = 0, ymin = 0;
 
                 Unknown.Organize(gr, ref xmin, ref ymin);
-                //HetepheresI.Organize(gr, ref xmin, ref ymin);
-                //SNEFERU.Organize(gr, ref xmin, ref ymin);
 
                 xmin = (this.ClientSize.Width - xmin) / 2;
 
@@ -82,24 +89,32 @@ namespace FamilyTree
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            FamilyMembers<PicNode> Adj = new FamilyMembers<PicNode>(new PicNode("Adjilson", Properties.Resources.Adj));
-            FamilyMembers<PicNode> Mauro = new FamilyMembers<PicNode>(new PicNode("Mauro", Properties.Resources.Mauro));
-            FamilyMembers<PicNode> MerititesI2 = new FamilyMembers<PicNode>(new PicNode("Mauro1", Properties.Resources.Mauro1));
-            FamilyMembers<PicNode> MerititesI3 = new FamilyMembers<PicNode>(new PicNode("Mauro2", Properties.Resources.Mauro2));
-            FamilyMembers<PicNode> MerititesI1_1 = new FamilyMembers<PicNode>(new PicNode("Helder", Properties.Resources.Adjilson1));
+          
 
+            foreach (Son son in Sons)
+            {
+                FamilyMembers<PicNode> sonn = new FamilyMembers<PicNode>(new PicNode(son.SonName, Properties.Resources.Adj));
+                Unknown.Add(sonn);
 
-            Adj.Add(MerititesI1_1);
-            Mauro.Add(MerititesI2);
-            Mauro.Add(MerititesI3);
-
-
-            Unknown.Add(Adj);
-            Unknown.Add(Mauro);
-
+            }
 
             ShowTree();
         }
+
+        //FamilyMembers<PicNode> Adj = new FamilyMembers<PicNode>(new PicNode("Adjilson", Properties.Resources.Adj));
+        //FamilyMembers<PicNode> Mauro = new FamilyMembers<PicNode>(new PicNode("Mauro", Properties.Resources.Mauro));
+        //FamilyMembers<PicNode> MerititesI2 = new FamilyMembers<PicNode>(new PicNode("Mauro1", Properties.Resources.Mauro1));
+        //FamilyMembers<PicNode> MerititesI3 = new FamilyMembers<PicNode>(new PicNode("Mauro2", Properties.Resources.Mauro2));
+        //FamilyMembers<PicNode> MerititesI1_1 = new FamilyMembers<PicNode>(new PicNode("Helder", Properties.Resources.Adjilson1));
+
+
+        //Adj.Add(MerititesI1_1);
+        //Mauro.Add(MerititesI2);
+        //Mauro.Add(MerititesI3);
+
+
+        //Unknown.Add(Adj);
+        //Unknown.Add(Mauro);
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
@@ -108,8 +123,7 @@ namespace FamilyTree
                TextRenderingHint.AntiAliasGridFit;
 
             Unknown.DrawFamily(e.Graphics);
-            //HetepheresI.DrawFamily(e.Graphics);
-            //SNEFERU.DrawFamily(e.Graphics);
+
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -124,7 +138,7 @@ namespace FamilyTree
 
         private void create_Click(object sender, EventArgs e)
         {
-            Form4 insertData = new Form4();
+            Form4 insertData = new Form4( Fathers,  Sons);
             this.Hide();
             insertData.ShowDialog();
         }

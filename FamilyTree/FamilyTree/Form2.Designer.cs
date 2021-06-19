@@ -156,6 +156,7 @@ namespace FamilyTree
             this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image.TabIndex = 11;
             this.image.TabStop = false;
+            this.image.Click += new System.EventHandler(this.image_Click);
             // 
             // btn_upload
             // 

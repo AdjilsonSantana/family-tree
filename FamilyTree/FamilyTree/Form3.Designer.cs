@@ -63,7 +63,7 @@ namespace FamilyTree
             this.lblNodeText.AutoSize = true;
             this.lblNodeText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblNodeText.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNodeText.Location = new System.Drawing.Point(501, 24);
+            this.lblNodeText.Location = new System.Drawing.Point(547, 21);
             this.lblNodeText.Name = "lblNodeText";
             this.lblNodeText.Padding = new System.Windows.Forms.Padding(10);
             this.lblNodeText.Size = new System.Drawing.Size(403, 40);

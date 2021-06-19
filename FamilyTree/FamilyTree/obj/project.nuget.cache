@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vRSt+c73yEiNd+J7OJ/wL8ZRDEpYZPFvoAV41/g5wENgQ2eYEOcLMXmENbIp+adRSIcOX1b0kCJF+m7+a5i+RQ==",
+  "dgSpecHash": "RWcYcRUZyFzaHUK8nkbI/GORIfVXsGUftzQMR/DqmEVe5/zpERS6grvh5+5TSXQjHGWg2MSGFs9KTqXVkW90Mw==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\OneDrive\\Documents\\LSUA\\Team project 2\\family-tree\\FamilyTree\\FamilyTree\\FamilyTree.csproj",
   "expectedPackageFiles": [
@@ -13,7 +13,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'Tulpep.NotificationWindow 1.1.38' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto 'net5.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "Package 'Tulpep.NotificationWindow 1.1.38' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "Tulpep.NotificationWindow",
       "targetGraphs": [
         "net5.0-windows7.0"

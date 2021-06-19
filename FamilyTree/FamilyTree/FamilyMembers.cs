@@ -190,27 +190,5 @@ namespace FamilyTree
 
         }
 
-        public bool Delete(FamilyMembers<T> tTarget)
-        {
-
-            foreach (FamilyMembers<T> tChild in lstChildren)
-            {
-
-                if (tChild == tTarget)
-                {
-
-                    lstChildren.Remove(tChild);
-
-                    return true;
-
-                }
-
-                if (tChild.Delete(tTarget)) return true;
-
-            }
-
-            return false;
-
-        }
     }
 }

@@ -13,9 +13,18 @@ namespace FamilyTree
 {
     public partial class Form4 : Form
     {
-        public Form4()
+        public List<Father> FathersCombo { get; set; }
+        public List<Son> Sons { get; set; }
+
+        private Father nameSelectd;
+
+        public Form4( List<Father> fathers, List<Son> sons)
         {
             InitializeComponent();
+            FathersCombo = new List<Father>();
+            FathersCombo = fathers;
+
+            Sons = sons;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -31,24 +40,8 @@ namespace FamilyTree
 
         public void loadCombobox ()
         {
-            comboBox1.Items.Clear();
-
-            //Connection 
-
-            NpgsqlConnection conn = new NpgsqlConnection("Server= localhost; Port= 5432; Database= fTree; User id = postgres; Password= 1234");
-            conn.Open();
-            NpgsqlCommand comm = new NpgsqlCommand();
-            comm.Connection = conn;
-            comm.CommandType = CommandType.Text;
-            comm.CommandText = "select name from father";
-            DataTable dt = new DataTable();
-            NpgsqlDataAdapter da = new NpgsqlDataAdapter(comm);
-            da.Fill(dt);
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                comboBox1.Items.Add(dr["name"].ToString());
-            }
+            comboBox1.DataSource = FathersCombo.ToList();
+            comboBox1.DisplayMember = "FatherName";
         }
 
         private void create_Click(object sender, EventArgs e)
@@ -60,7 +53,13 @@ namespace FamilyTree
 
         private void button1_Click(object sender, EventArgs e)
         {
-            familyDesign family = new familyDesign();
+            nameSelectd =  comboBox1.SelectedItem as Father;
+
+            List<Son> sonFather ;
+
+            sonFather = Sons.FindAll(s => s.IdFather == nameSelectd.Id);
+
+            familyDesign family = new familyDesign(sonFather, nameSelectd, FathersCombo);
             this.Hide();
             family.ShowDialog();
         }
