@@ -23,7 +23,7 @@ namespace FamilyTree
             InitializeComponent();
             FathersCombo = new List<Father>();
             FathersCombo = fathers;
-
+            nameSelectd.Sons = new List<Son>();
             Sons = sons;
         }
 
@@ -55,11 +55,11 @@ namespace FamilyTree
         {
             nameSelectd =  comboBox1.SelectedItem as Father;
 
-            List<Son> sonFather ;
+            //List<Son> sonFather ;
 
-            sonFather = Sons.FindAll(s => s.IdFather == nameSelectd.Id);
+            nameSelectd.Sons = Sons.FindAll(s => s.IdFather == nameSelectd.Id);
 
-            familyDesign family = new familyDesign(sonFather, nameSelectd, FathersCombo);
+            familyDesign family = new familyDesign(Sons, nameSelectd, FathersCombo);
             this.Hide();
             family.ShowDialog();
         }

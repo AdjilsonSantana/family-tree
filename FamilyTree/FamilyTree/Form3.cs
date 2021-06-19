@@ -23,11 +23,11 @@ namespace FamilyTree
         private FamilyMembers<PicNode> Unknown ;
 
 
-        public familyDesign(List<Son> sonFather, Father name, List<Father> fatherCombo)
+        public familyDesign(List<Son> son, Father father, List<Father> fatherCombo)
         {
             InitializeComponent();
-            Sons = sonFather;
-            nameSelectd = name;
+            Sons = son;
+            nameSelectd = father;
             Fathers = fatherCombo;
 
             Unknown = new FamilyMembers<PicNode>(new PicNode(nameSelectd.FatherName, Properties.Resources.Unknown));
@@ -91,9 +91,21 @@ namespace FamilyTree
         {
           
 
-            foreach (Son son in Sons)
+            foreach (Son son in nameSelectd.Sons)
             {
                 FamilyMembers<PicNode> sonn = new FamilyMembers<PicNode>(new PicNode(son.SonName, Properties.Resources.Adj));
+                var pai = Fathers.FirstOrDefault(p => p.Id==son.IdFather && p.Id!=nameSelectd.Id );
+                if (pai!=null)
+                {
+                    var filhos = Sons.FindAll(s => s.IdFather == pai.Id);
+                    if (filhos!=null)
+                    {
+                        foreach (var item in filhos)
+                        {
+                            sonn.Add(new FamilyMembers<PicNode>(new PicNode(item.SonName, Properties.Resources.Adj)));
+                        }
+                    }
+                }
                 Unknown.Add(sonn);
 
             }

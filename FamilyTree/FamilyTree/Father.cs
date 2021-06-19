@@ -11,6 +11,8 @@ namespace FamilyTree
         public string FatherName { get; set; }
         public int Id { get; set; }
 
+        public List<Son> Sons { get; set; }
+
 
     }
 }
