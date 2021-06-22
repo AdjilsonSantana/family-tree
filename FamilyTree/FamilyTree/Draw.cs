@@ -35,7 +35,10 @@ namespace FamilyTree
 
         }
 
+
         public SizeF NodeSize = new SizeF(100, 100);
+        private string fatherName;
+        private string v;
 
         public SizeF GetSize(Graphics gr, Font fFont)
         {

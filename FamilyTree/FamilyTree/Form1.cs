@@ -17,9 +17,11 @@ namespace FamilyTree
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void create_Click(object sender, EventArgs e)
         {
-
+            Form2 insertData = new Form2();
+            this.Hide();
+            insertData.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -27,12 +29,6 @@ namespace FamilyTree
 
         }
 
-        private void create_Click(object sender, EventArgs e)
-        {
-            Form2 insertData = new Form2();
-            this.Hide();
-            insertData.ShowDialog();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {

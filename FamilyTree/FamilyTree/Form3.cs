@@ -18,9 +18,10 @@ namespace FamilyTree
         public List<Father> Fathers { get; set; }
         public List<Son> Sons { get; set; }
 
-
         private FamilyMembers<PicNode> SelectedNode;
         private FamilyMembers<PicNode> Unknown ;
+
+        string path = "";
 
 
         public familyDesign(List<Son> son, Father father, List<Father> fatherCombo)
@@ -30,8 +31,9 @@ namespace FamilyTree
             nameSelectd = father;
             Fathers = fatherCombo;
 
-            Unknown = new FamilyMembers<PicNode>(new PicNode(nameSelectd.FatherName, Properties.Resources.Unknown));
+            path = Application.StartupPath;
 
+            Unknown = new FamilyMembers<PicNode>(new PicNode(nameSelectd.FatherName, new Bitmap( path + @"\Image\Father\" + nameSelectd.Id)));
 
         }
 
@@ -71,7 +73,6 @@ namespace FamilyTree
 
                 SelectedNode = Unknown.NodePoint(gr, pt);
 
-                //SelectedNode = SNEFERU.NodePoint(gr, pt);
             }
 
             if (SelectedNode != null)
@@ -89,44 +90,34 @@ namespace FamilyTree
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
 
             foreach (Son son in nameSelectd.Sons)
             {
-                FamilyMembers<PicNode> sonn = new FamilyMembers<PicNode>(new PicNode(son.SonName, Properties.Resources.Adj));
-                var pai = Fathers.FirstOrDefault(p => p.Id==son.IdFather && p.Id!=nameSelectd.Id );
-                if (pai!=null)
+                FamilyMembers<PicNode> sonn = new FamilyMembers<PicNode>(new PicNode(son.SonName, new Bitmap(path + @"\Image\Son\" + son.Id)));
+
+                var father = Fathers.FirstOrDefault(p => p.FatherName==son.SonName && p.Id!=nameSelectd.Id );
+
+                if (father!=null)
                 {
-                    var filhos = Sons.FindAll(s => s.IdFather == pai.Id);
-                    if (filhos!=null)
+                    var sons = Sons.FindAll(s => s.IdFather == father.Id);
+                    if (sons!=null)
                     {
-                        foreach (var item in filhos)
+                        foreach (var s in sons)
                         {
-                            sonn.Add(new FamilyMembers<PicNode>(new PicNode(item.SonName, Properties.Resources.Adj)));
+                            sonn.Add(new FamilyMembers<PicNode>(new PicNode(s.SonName, new Bitmap(path + @"\Image\Son\" + s.Id))));
                         }
                     }
                 }
+
                 Unknown.Add(sonn);
 
             }
 
             ShowTree();
+
+            
         }
-
-        //FamilyMembers<PicNode> Adj = new FamilyMembers<PicNode>(new PicNode("Adjilson", Properties.Resources.Adj));
-        //FamilyMembers<PicNode> Mauro = new FamilyMembers<PicNode>(new PicNode("Mauro", Properties.Resources.Mauro));
-        //FamilyMembers<PicNode> MerititesI2 = new FamilyMembers<PicNode>(new PicNode("Mauro1", Properties.Resources.Mauro1));
-        //FamilyMembers<PicNode> MerititesI3 = new FamilyMembers<PicNode>(new PicNode("Mauro2", Properties.Resources.Mauro2));
-        //FamilyMembers<PicNode> MerititesI1_1 = new FamilyMembers<PicNode>(new PicNode("Helder", Properties.Resources.Adjilson1));
-
-
-        //Adj.Add(MerititesI1_1);
-        //Mauro.Add(MerititesI2);
-        //Mauro.Add(MerititesI3);
-
-
-        //Unknown.Add(Adj);
-        //Unknown.Add(Mauro);
+ 
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {

@@ -100,11 +100,12 @@ namespace FamilyTree
 
                     });
                 }
+                LastSonId = Sons.LastOrDefault().Id;
                 dr.Close();
             }
 
             LastFatherId = Fathers.LastOrDefault().Id;
-            LastSonId = Sons.LastOrDefault().Id;
+            
 
             conn.Close();
 
