@@ -194,25 +194,26 @@ namespace FamilyTree
                 if (!string.IsNullOrEmpty(Open.FileName) && Open.CheckFileExists)
                 {
                     File.Copy(Open.FileName, Path.Combine(Application.StartupPath + @$"\Image\{Folder}\" + Path.GetFileName(Filename.ToString())));
+                    PopupNotifier popup = new PopupNotifier();
+                    popup.TitleText = "Sucess! Father Added.";
+                    popup.Popup();
 
                 }
                 else
                 {
-                    MessageBox.Show("Error uploading image!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please upload one image!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Open.Dispose();
                 }
             }
             else
             {
-                MessageBox.Show("Error inserting father!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Problem inserting father!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Open.Dispose();
             }
 
             LoadData();
 
-            PopupNotifier popup = new PopupNotifier();
-            popup.TitleText = "Sucess!";
-            popup.Popup();
+            
 
         }
 
@@ -265,26 +266,25 @@ namespace FamilyTree
                 if (!string.IsNullOrEmpty(Open.FileName) && Open.CheckFileExists)
                 {
                     File.Copy(Open.FileName, Path.Combine(Application.StartupPath + @$"\Image\{Folder}\" + Path.GetFileName(Filename.ToString())));
+                    PopupNotifier popup = new PopupNotifier();
+                    popup.TitleText = "Success! Son added.";
+                    popup.Popup();
 
                 }
                 else
                 {
-                    MessageBox.Show("Error uploading image!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please upload a image!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Open.Dispose();
                 }
             }
             else
             {
-                MessageBox.Show("Error inserting son!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Problem inserting son!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Open.Dispose();
             }
 
             LoadData();
 
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.TitleText = "Success!";
-            popup.Popup();
 
         }
 
