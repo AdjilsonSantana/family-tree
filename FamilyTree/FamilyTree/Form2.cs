@@ -133,13 +133,11 @@ namespace FamilyTree
             Filename = 0;
             if (!IsSon.Checked)
             {
-                Folder = "Father";
-                Filename = LastFatherId + 1;
+                Folder = "Father";    
             }
             else
             {
-                Folder = "Son";
-                Filename = LastSonId + 1;
+                Folder = "Son";   
             }
             image.Image.Dispose();
             Open.Dispose();
@@ -159,7 +157,6 @@ namespace FamilyTree
                     Directory.CreateDirectory(Application.StartupPath + @$"\Image\{Folder}\");
                 }
 
-               
 
             }
             catch (Exception)
@@ -185,6 +182,9 @@ namespace FamilyTree
             comm.Parameters.AddWithValue("@name", textBoxFather.Text);
           
             int result = comm.ExecuteNonQuery();
+
+            LoadData();
+            Filename = LastFatherId;
 
             if (result == 1)
             {
@@ -257,6 +257,10 @@ namespace FamilyTree
             comm.Parameters.AddWithValue("@identifier", this.LastFatherId);
 
             int result = comm.ExecuteNonQuery();
+
+            LoadData();
+            Filename = LastSonId;
+
 
             if (result == 1)
             {
