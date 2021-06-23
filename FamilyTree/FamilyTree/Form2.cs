@@ -47,7 +47,7 @@ namespace FamilyTree
 
         private void button1_Click(object sender, EventArgs e)
         {
-       
+            LoadData();
             Form4 open = new Form4(Fathers,Sons);
             this.Hide(); 
             open.ShowDialog();
@@ -68,8 +68,6 @@ namespace FamilyTree
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.HasRows)
             {
-                //DataTable dt = new DataTable();
-                //dt.Load(dr);
 
                 while (dr.Read())
                 {
@@ -82,7 +80,6 @@ namespace FamilyTree
                 }
                 dr.Close();
 
-                //dataGridView1.DataSource = dt;
             }
 
 
@@ -114,7 +111,7 @@ namespace FamilyTree
         private void Form2_Load(object sender, EventArgs e)
         {
             image.Image = Image.FromFile(Application.StartupPath + @"\Image\" + "sem-foto.jpg");
-            LoadData();
+           
             textBoxSon.Enabled = false;
             saveSon.Enabled = false;
       
@@ -168,7 +165,7 @@ namespace FamilyTree
             catch (Exception)
             {
 
-                MessageBox.Show("Erro ao Carregar a Imagem!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Problem uploading image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Open.Dispose();
             }
 
